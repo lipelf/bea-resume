@@ -1,6 +1,6 @@
 "use client";
 
-import { FaChevronDown, FaLinkedin } from "react-icons/fa";
+import { FaChevronDown, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { useLanguage } from "@/lib/LanguageContext";
 import { translations } from "@/lib/translations";
 
@@ -53,7 +53,7 @@ export default function Hero() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="#contato"
+            href="contato"
             className="flex items-center gap-2 bg-[#c9a84c] hover:bg-[#b8973b] text-[#0f1b30] font-bold px-8 py-3.5 rounded-full text-base transition-all duration-200 shadow-lg hover:scale-105"
           >
             {t.cta1}
@@ -75,6 +75,15 @@ export default function Hero() {
             aria-label="LinkedIn"
           >
             <FaLinkedin />
+          </a>
+          <a
+            href="https://wa.me/5548988720102"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full border border-[#1e3a5f] hover:border-[#c9a84c] text-gray-400 hover:text-[#c9a84c] flex items-center justify-center transition-all duration-200"
+            aria-label="WhatsApp"
+          >
+            <FaWhatsapp />
           </a>
         </div>
       </div>

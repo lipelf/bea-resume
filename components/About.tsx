@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FaLightbulb, FaHeart, FaRocket, FaUsers } from "react-icons/fa";
 import { useLanguage } from "@/lib/LanguageContext";
 import { translations } from "@/lib/translations";
@@ -46,18 +47,19 @@ export default function About() {
             </a>
           </div>
 
-          <div className="grid grid-cols-2 gap-6">
-            {t.stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="bg-[#0f1b30] rounded-2xl p-8 text-center shadow-lg"
-              >
-                <p className="text-[#c9a84c] text-4xl font-bold">{stat.num}</p>
-                <p className="text-gray-300 text-sm mt-2 leading-tight">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+            <Image
+              src="/PHOTO-2026-06-21-13-24-17.jpg"
+              alt="Beatriz Bittencourt"
+              width={600}
+              height={700}
+              className="w-full h-full object-cover object-top"
+              style={{ maxHeight: "520px" }}
+            />
+            {/* blur gradient overlay na base */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0f1b30]/60 via-transparent to-transparent" />
+            {/* borda dourada sutil */}
+            <div className="absolute inset-0 rounded-3xl ring-2 ring-[#c9a84c]/30 pointer-events-none" />
           </div>
         </div>
 

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { FaBars, FaTimes, FaCode, FaChevronDown } from "react-icons/fa";
+import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
+import { GoLaw } from "react-icons/go";
 import { useLanguage } from "@/lib/LanguageContext";
 import { translations } from "@/lib/translations";
 
@@ -28,7 +29,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-18 py-3">
           {/* Logo */}
           <a href="#inicio" className="flex items-center gap-3 group">
-            <FaCode className="text-[#c9a84c] text-2xl group-hover:scale-110 transition-transform duration-300" />
+            <GoLaw className="text-[#c9a84c] text-2xl group-hover:scale-110 transition-transform duration-300" />
             <div>
               <p className="text-white font-bold text-lg leading-tight tracking-wide">
                 Beatriz Bittencourt

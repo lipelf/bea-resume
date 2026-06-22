@@ -5,7 +5,7 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
   FaLinkedin,
-  FaPhone,
+  FaWhatsapp,
   FaChevronDown,
 } from "react-icons/fa";
 import { useLanguage } from "@/lib/LanguageContext";
@@ -16,6 +16,28 @@ export default function Contact() {
   const t = translations[lang].contact;
   const [cvOpen, setCvOpen] = useState(false);
   const cvRef = useRef<HTMLDivElement>(null);
+  const [form, setForm] = useState({ name: "", company: "", email: "", message: "" });
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const text = [
+      `Olá Beatriz! Vim pelo seu site. 👋`,
+      ``,
+      `*Nome:* ${form.name}`,
+      form.company ? `*Empresa:* ${form.company}` : null,
+      form.email ? `*E-mail:* ${form.email}` : null,
+      ``,
+      `*Mensagem:*`,
+      form.message,
+    ]
+      .filter((l) => l !== null)
+      .join("\n");
+    window.open(`https://wa.me/5548988720102?text=${encodeURIComponent(text)}`, "_blank");
+  }
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -34,18 +56,21 @@ export default function Contact() {
       value: t.locationValue,
     },
     {
-      icon: <FaPhone className="text-[#c9a84c] text-xl shrink-0" />,
+      icon: <FaWhatsapp className="text-[#c9a84c] text-xl shrink-0" />,
       label: lang === "pt" ? "Telefone / WhatsApp" : "Phone / WhatsApp",
-      value: "(48) 99876-5432",
+      href: "https://wa.me/5548988720102",
+      value: "(48) 98872-0102",
     },
     {
       icon: <FaEnvelope className="text-[#c9a84c] text-xl shrink-0" />,
       label: "E-mail",
+      href: "mailto:bittencourtbea2@gmail.com",
       value: "bittencourtbea2@gmail.com",
     },
     {
       icon: <FaLinkedin className="text-[#c9a84c] text-xl shrink-0" />,
       label: "LinkedIn",
+      href: "https://www.linkedin.com/in/beatriz-bittencourt-503b35295/",
       value: "linkedin.com/in/beatrizbittencourt-503b35295",
     },
   ];
@@ -82,9 +107,20 @@ export default function Contact() {
                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide">
                       {info.label}
                     </p>
-                    <p className="text-[#0f1b30] font-medium mt-0.5 whitespace-pre-line text-sm">
-                      {info.value}
-                    </p>
+                    {info.href ? (
+                      <a
+                        href={info.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#0f1b30] font-medium mt-0.5 whitespace-pre-line text-sm hover:text-[#c9a84c] transition-colors"
+                      >
+                        {info.value}
+                      </a>
+                    ) : (
+                      <p className="text-[#0f1b30] font-medium mt-0.5 whitespace-pre-line text-sm">
+                        {info.value}
+                      </p>
+                    )}
                   </div>
                 </div>
               ))}
@@ -145,7 +181,7 @@ export default function Contact() {
               <h4 className="text-lg font-bold text-[#0f1b30] mb-6">
                 {t.sendMessage}
               </h4>
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide block mb-1.5">
@@ -153,6 +189,10 @@ export default function Contact() {
                     </label>
                     <input
                       type="text"
+                      name="name"
+                      required
+                      value={form.name}
+                      onChange={handleChange}
                       placeholder={t.namePlaceholder}
                       className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#0f1b30] placeholder-gray-400 focus:outline-none focus:border-[#c9a84c] transition-colors"
                     />
@@ -163,6 +203,9 @@ export default function Contact() {
                     </label>
                     <input
                       type="text"
+                      name="company"
+                      value={form.company}
+                      onChange={handleChange}
                       placeholder={t.companyPlaceholder}
                       className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#0f1b30] placeholder-gray-400 focus:outline-none focus:border-[#c9a84c] transition-colors"
                     />
@@ -174,6 +217,9 @@ export default function Contact() {
                   </label>
                   <input
                     type="email"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
                     placeholder={t.emailPlaceholder}
                     className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#0f1b30] placeholder-gray-400 focus:outline-none focus:border-[#c9a84c] transition-colors"
                   />
@@ -184,6 +230,10 @@ export default function Contact() {
                   </label>
                   <textarea
                     rows={4}
+                    name="message"
+                    required
+                    value={form.message}
+                    onChange={handleChange}
                     placeholder={t.messagePlaceholder}
                     className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-[#0f1b30] placeholder-gray-400 focus:outline-none focus:border-[#c9a84c] transition-colors resize-none"
                   />

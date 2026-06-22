@@ -1,6 +1,7 @@
 "use client";
 
-import { FaLinkedin, FaUser, FaBriefcase, FaGraduationCap } from "react-icons/fa";
+import Image from "next/image";
+import { FaLinkedin, FaBriefcase, FaGraduationCap } from "react-icons/fa";
 import { useLanguage } from "@/lib/LanguageContext";
 import { translations } from "@/lib/translations";
 
@@ -33,21 +34,27 @@ export default function Partners() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="w-175 mx-auto" >
           {t.profiles.map((profile, i) => (
             <div
               key={i}
               className="bg-white rounded-3xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
-              {/* Photo placeholder */}
-              <div className="relative h-72 bg-gradient-to-br from-[#0f1b30] to-[#1a2f50] flex flex-col items-center justify-center">
-                <div className="w-28 h-28 rounded-full border-4 border-[#c9a84c] bg-[#1e2f4a] flex items-center justify-center mb-4">
-                  <FaUser className="text-[#c9a84c] text-5xl" />
-                </div>
-                <span className="text-[#c9a84c] text-xs font-semibold tracking-widest uppercase bg-[#0f1b30]/60 px-4 py-1 rounded-full border border-[#c9a84c]/40">
-                  {profile.label}
+              {/* Photo */}
+              <div className="relative h-82 overflow-hidden">
+                <Image
+                  src="/PHOTO-2026-06-21-13-24-17.jpg"
+                  alt="Beatriz Bittencourt"
+                  fill
+                  className="object-cover"
+                  style={{ objectPosition: "center 30%"}}
+                />
+                {/* blur suave nas bordas via gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0f1b30]/70 via-transparent to-[#0f1b30]/10" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-transparent backdrop-blur-[1px] [mask-image:linear-gradient(to_top,black_0%,transparent_40%)]" />
+                <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[#c9a84c] text-xs font-semibold tracking-widest uppercase bg-[#0f1b30]/70 px-4 py-1 rounded-full border border-[#c9a84c]/40 whitespace-nowrap backdrop-blur-sm">
                 </span>
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#c9a84c] to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c9a84c] to-transparent" />
               </div>
 
               {/* Content */}

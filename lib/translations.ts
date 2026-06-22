@@ -50,26 +50,14 @@ export const translations = {
       subtitle: "Uma trajetória construída com dedicação, aprendizado constante e paixão pelo Direito.",
       profiles: [
         {
-          label: "Foto Profissional",
-          role: "Estagiária Jurídica · 2+ anos",
-          tag: "Experiência Profissional",
-          bio: "Acumulo experiência como estagiária jurídica na Defensoria Pública do Estado de SC e no escritório Felipe Galera Advogado, com atuação em elaboração de peças processuais, pesquisas legislativas e atendimento humanizado. Também participei do programa Work & Travel nos EUA, desenvolvendo resiliência e habilidades multiculturais.",
+          role: "Estudante de Direito · UNESC",
+          tag: "Formação & Idiomas",
+          bio: "Cursando Bacharelado em Direito na UNESC (2023–2028), com experiências em diversas áreas jurídicas. Tenho inglês avançado e espanhol intermediário, o que me permite atuar em contextos internacionais e multiculturais com confiança. Acumulo experiência como estagiária jurídica na Defensoria Pública do Estado de SC e no escritório Felipe Galera Advogado, com atuação em elaboração de peças processuais, pesquisas legislativas e atendimento humanizado. Também participei do programa Work & Travel nos EUA, desenvolvendo resiliência e habilidades multiculturais.",
           highlights: [
             "Defensoria Pública do Estado de SC — Estagiária (Set/2024–atual)",
             "Felipe Galera Advogado — Estagiária Jurídica (Set/2023–Set/2024)",
             "The Highlands, EUA — Work & Travel (Dez/2025–Mar/2026)",
-          ],
-          linkedin: "https://www.linkedin.com/in/beatriz-bittencourt-503b35295/",
-        },
-        {
-          label: "Foto Pessoal",
-          role: "Estudante de Direito · UNESC",
-          tag: "Formação & Idiomas",
-          bio: "Cursando Bacharelado em Direito na UNESC (2023–2028), com experiências em diversas áreas jurídicas. Tenho inglês avançado e espanhol intermediário, o que me permite atuar em contextos internacionais e multiculturais com confiança.",
-          highlights: [
-            "Bacharelado em Direito — UNESC (2023–2028)",
             "Inglês Avançado",
-            "Espanhol Intermediário",
           ],
           linkedin: "https://www.linkedin.com/in/beatriz-bittencourt-503b35295/",
         },
