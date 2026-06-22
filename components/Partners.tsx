@@ -34,7 +34,7 @@ export default function Partners() {
           </p>
         </div>
 
-        <div className="w-175 mx-auto" >
+        <div className="max-w-2xl mx-auto w-full">
           {t.profiles.map((profile, i) => (
             <div
               key={i}
